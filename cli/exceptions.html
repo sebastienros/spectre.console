@@ -13,13 +13,13 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
 
-        <title>Spectre.Console - Spectre1000</title>
-        <meta name="description" content="Use AnsiConsole instead of System.Console" />
+        <title>Spectre.Console - Exceptions</title>
+        <meta name="description" content="Handling exceptions in *Spectre.Console.Cli*" />
 
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="og:title" content="Spectre.Console - Spectre1000" />
-            <meta name="og:description" content="Use AnsiConsole instead of System.Console" />
-            <meta name="og:image" content="https://spectreconsole.net/analyzer/rules/spectre1000-social.png" />
+            <meta name="og:title" content="Spectre.Console - Exceptions" />
+            <meta name="og:description" content="Handling exceptions in *Spectre.Console.Cli*" />
+            <meta name="og:image" content="https://spectreconsole.net/cli/exceptions-social.png" />
 
     </head>
     <body class="antialiased text-gray-600 min-h-full flex flex-col  bg-gray-50">
@@ -153,7 +153,7 @@
                                     <div class="mt-2 mr-4">
                                         <a href="/cli/migration">Migrate from Spectre.Cli</a>
                                     </div>
-                                    <div class="mt-2 mr-4">
+                                    <div class="mt-2 mr-4 font-bold">
                                         <a href="/cli/exceptions">Exceptions</a>
                                     </div>
                             </div>
@@ -179,26 +179,105 @@
                 </nav>
                 <article class="flex-1 min-w-0">
                     <header class="text-gray-800 mb-4">
-                        <h1 class="text-4xl font-extrabold">Spectre1000</h1>
+                        <h1 class="text-4xl font-extrabold">Exceptions</h1>
                         
                     </header>
                     <div class="prose max-w-none prose-sm lg:prose lg:max-w-none 2xl:prose-xl 2xl:max-w-none text-gray-700 font-light">
-                        
+                        <p>Exceptions happen.</p>
+<p><code>Spectre.Console.Cli</code> handles exceptions, writes a user friendly message to the console and sets the exitCode
+of the application to <code>-1</code>.
+While this might be enough for the needs of most applications, there are some options to customize this behavior.</p>
+<h2 id="propagating-exceptions">Propagating exceptions</h2>
+<p>The most basic way is to set <code>PropagateExceptions()</code> during configuration and handle everything.
+While this option grants the most freedom, it also requires the most work: Setting <code>PropagateExceptions</code>
+means that <code>Spectre.Console.Cli</code> effectively re-throws exceptions.
+This means that <code>app.Run()</code> should be wrapped in a <code>try</code>-<code>catch</code>-block which has to handle the exception
+(i.e. outputting something useful) and also provide the exitCode (or <code>return</code> value) for the application.</p>
+<pre><code class="language-csharp">using Spectre.Console.Cli;
 
+namespace MyApp
+{
+    public static class Program
+    {
+        public static int Main(string[] args)
+        {
+            var app = new CommandApp&lt;FileSizeCommand&gt;();
 
-<p>Use AnsiConsole instead of System.Console</p>
+            app.Configure(config =&gt;
+            {
+                config.PropagateExceptions();
+            });
 
-<h2 id="cause">Cause</h2>
-<p>A violation of this rule occurs when <code>System.Console</code> is used for common methods exposed by Spectre.Console.</p>
-<h2 id="reason-for-rule">Reason for rule</h2>
-<p>Methods implemented in Spectre.Console should be used over direct access to <code>System.Console</code> to allow for enhancements and
-features to be enabled.</p>
-<h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>To fix a violation of this rule, change from <code>System.Console</code> to <code>Spectre.Console.AnsiConsole</code>.</p>
-<h2 id="how-to-suppress-violations">How to suppress violations</h2>
-<pre><code class="language-csharp">#pragma warning disable Spectre1000 // Use AnsiConsole instead of System.Console
+            try
+            {
+                return app.Run(args);
+            }
+            catch (Exception ex)
+            {
+                AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything);
+                return -99;
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="using-a-custom-exceptionhandler">Using a custom ExceptionHandler</h2>
+<p>Using the <code>SetErrorHandler()</code> during configuration it is possible to handle exceptions in a defined way.
+This method comes in two flavours: One that uses the default exitCode (or <code>return</code> value) of <code>-1</code> and one
+where the exitCode needs to be supplied.</p>
+<h3 id="using-seterrorhandlerfuncexception-int-handler">Using <code>SetErrorHandler(Func&lt;Exception, int&gt; handler)</code></h3>
+<p>Using this method exceptions can be handled in a custom way. The return value of the handler is used as
+the exitCode for the application.</p>
+<pre><code class="language-csharp">using Spectre.Console.Cli;
 
-#pragma warning restore Spectre1000 // Use AnsiConsole instead of System.Console
+namespace MyApp
+{
+    public static class Program
+    {
+        public static int Main(string[] args)
+        {
+            var app = new CommandApp&lt;FileSizeCommand&gt;();
+
+            app.Configure(config =&gt;
+            {
+                config.SetExceptionHandler(ex =&gt;
+                {
+                    AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything);
+                    return -99;
+                });
+            });
+
+            return app.Run(args);
+        }
+    }
+}
+</code></pre>
+<h3 id="using-seterrorhandleractionexception-handler">Using <code>SetErrorHandler(Action&lt;Exception&gt; handler)</code></h3>
+<p>Using this method exceptions can be handled in a custom way, much the same as with the <code>SetErrorHandler(Func&lt;Exception, int&gt; handler)</code>.
+Using the <code>Action</code> as the handler however, it is not possible (or required) to supply a return value.
+The exitCode for the application will be <code>-1</code>.</p>
+<pre><code class="language-csharp">using Spectre.Console.Cli;
+
+namespace MyApp
+{
+    public static class Program
+    {
+        public static int Main(string[] args)
+        {
+            var app = new CommandApp&lt;FileSizeCommand&gt;();
+
+            app.Configure(config =&gt;
+            {
+                config.SetExceptionHandler(ex =&gt;
+                {
+                    AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything);
+                });
+            });
+
+            return app.Run(args);
+        }
+    }
+}
 </code></pre>
 
                     </div>
