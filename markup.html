@@ -185,7 +185,7 @@
 <h2 id="syntax">Syntax</h2>
 <p>Console markup uses a syntax inspired by bbcode. If you write the style (see <a href="/appendix/styles">Styles</a>)
 in square brackets, e.g. <code>[bold red]</code>, that style will apply until it is closed with a <code>[/]</code>.</p>
-<pre><code class="language-csharp">AnsiConsole.Render(new Markup("[bold yellow]Hello[/] [red]World![/]"));
+<pre><code class="language-csharp">AnsiConsole.Write(new Markup("[bold yellow]Hello[/] [red]World![/]"));
 </code></pre>
 <p>The <code>Markup</code> class implements <code>IRenderable</code> which means that you
 can use this in tables, grids, and panels. Most classes that support
@@ -193,7 +193,7 @@ rendering of <code>IRenderable</code> also have overloads for rendering rich tex
 <pre><code class="language-csharp">var table = new Table();
 table.AddColumn(new TableColumn(new Markup("[yellow]Foo[/]")));
 table.AddColumn(new TableColumn("[blue]Bar[/]"));
-AnsiConsole.Render(table);
+AnsiConsole.Write(table);
 </code></pre>
 <h2 id="convenience-methods">Convenience methods</h2>
 <p>There is also convenience methods on <code>AnsiConsole</code> that can be used

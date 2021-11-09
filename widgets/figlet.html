@@ -185,7 +185,7 @@
                     <div class="prose max-w-none prose-sm lg:prose lg:max-w-none 2xl:prose-xl 2xl:max-w-none text-gray-700 font-light">
                         <p>Spectre.Console can render <a href="http://www.figlet.org/">FIGlet</a> text by using the <code>FigletText</code> class.</p>
 <h2 id="default-font">Default font</h2>
-<pre><code class="language-csharp">AnsiConsole.Render(
+<pre><code class="language-csharp">AnsiConsole.Write(
     new FigletText(&quot;Hello&quot;)
         .LeftAligned()
         .Color(Color.Red));
@@ -194,7 +194,7 @@
 <h2 id="custom-font">Custom font</h2>
 <pre><code class="language-csharp">var font = FigletFont.Load(&quot;starwars.flf&quot;);
 
-AnsiConsole.Render(
+AnsiConsole.Write(
     new FigletText(font, &quot;Hello&quot;)
         .LeftAligned()
         .Color(Color.Red));

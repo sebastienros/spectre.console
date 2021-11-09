@@ -188,12 +188,12 @@
 <h2 id="usage">Usage</h2>
 <p>To render a rule without a title:</p>
 <pre><code class="language-csharp">var rule = new Rule();
-AnsiConsole.Render(rule);
+AnsiConsole.Write(rule);
 </code></pre>
 <h2 id="title">Title</h2>
 <p>You can set the rule title markup text.</p>
 <pre><code class="language-csharp">var rule = new Rule(&quot;[red]Hello[/]&quot;);
-AnsiConsole.Render(rule);
+AnsiConsole.Write(rule);
 </code></pre>
 <pre><code class="language-text">───────────────────────────────── Hello ─────────────────────────────────
 </code></pre>
@@ -201,26 +201,26 @@ AnsiConsole.Render(rule);
 <p>You can set the rule's title alignment.</p>
 <pre><code class="language-csharp">var rule = new Rule(&quot;[red]Hello[/]&quot;);
 rule.Alignment = Justify.Left;
-AnsiConsole.Render(rule);
+AnsiConsole.Write(rule);
 </code></pre>
 <pre><code class="language-text">── Hello ────────────────────────────────────────────────────────────────
 </code></pre>
 <p>You can also specify it via an extension method:</p>
 <pre><code class="language-csharp">var rule = new Rule(&quot;[red]Hello[/]&quot;);
 rule.LeftAligned();
-AnsiConsole.Render(rule);
+AnsiConsole.Write(rule);
 </code></pre>
 <pre><code class="language-text">── Hello ────────────────────────────────────────────────────────────────
 </code></pre>
 <h2 id="styling">Styling</h2>
 <pre><code class="language-csharp">var rule = new Rule(&quot;[red]Hello[/]&quot;);
 rule.Style = Style.Parse(&quot;red dim&quot;);
-AnsiConsole.Render(rule);
+AnsiConsole.Write(rule);
 </code></pre>
 <p>You can also specify it via an extension method</p>
 <pre><code class="language-csharp">var rule = new Rule(&quot;[red]Hello[/]&quot;);
 rule.RuleStyle(&quot;red dim&quot;);
-AnsiConsole.Render(rule);
+AnsiConsole.Write(rule);
 </code></pre>
 
                     </div>

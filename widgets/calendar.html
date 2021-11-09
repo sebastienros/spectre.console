@@ -187,26 +187,26 @@
 <h2 id="usage">Usage</h2>
 <p>To render a calendar, create a <code>Calendar</code> instance with a target date.</p>
 <pre><code class="language-csharp">var calendar = new Calendar(2020,10);
-AnsiConsole.Render(calendar);
+AnsiConsole.Write(calendar);
 </code></pre>
 <asciinema-player src="/assets/casts/calendar-rich.cast" autoplay></asciinema-player>
 <h2 id="culture">Culture</h2>
 <p>You can set the calendar's culture to show localized weekdays.</p>
 <pre><code class="language-csharp">var calendar = new Calendar(2020,10);
-calendar.Culture(&quot;ja-JP&quot;);
-AnsiConsole.Render(calendar);
+calendar.Culture(&quot;sv-SE&quot;);
+AnsiConsole.Write(calendar);
 </code></pre>
 <asciinema-player src="/assets/casts/calendar-culture-rich.cast" autoplay></asciinema-player>
 <h2 id="header">Header</h2>
 <p>You can hide the calendar header.</p>
 <pre><code class="language-csharp">var calendar = new Calendar(2020,10);
 calendar.HideHeader();
-AnsiConsole.Render(calendar);
+AnsiConsole.Write(calendar);
 </code></pre>
 <p>You can set the header style of the calendar.</p>
 <pre><code class="language-csharp">var calendar = new Calendar(2020, 10);
 calendar.HeaderStyle(Style.Parse(&quot;blue bold&quot;));
-AnsiConsole.Render(calendar);
+AnsiConsole.Write(calendar);
 </code></pre>
 <asciinema-player src="/assets/casts/calendar-header-rich.cast" autoplay></asciinema-player>
 <h2 id="calendar-events">Calendar Events</h2>

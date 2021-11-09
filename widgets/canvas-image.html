@@ -200,7 +200,7 @@ var image = new CanvasImage(&quot;cake.png&quot;);
 image.MaxWidth(16);
 
 // Render the image to the console
-AnsiConsole.Render(image);
+AnsiConsole.Write(image);
 </code></pre>
 <h2 id="result">Result</h2>
 <asciinema-player src="/assets/casts/canvas-image-rich.cast" autoplay></asciinema-player>
@@ -218,7 +218,7 @@ image.BilinearResampler();
 image.Mutate(ctx =&gt; ctx.Grayscale().Rotate(-45).EntropyCrop());
 
 // Render the image to the console
-AnsiConsole.Render(image);
+AnsiConsole.Write(image);
 </code></pre>
 <h2 id="result-1">Result</h2>
 <asciinema-player src="/assets/casts/canvas-image-manipulation-rich.cast" autoplay></asciinema-player>
