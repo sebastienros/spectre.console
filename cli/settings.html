@@ -217,6 +217,11 @@ public string LastName { get; set; }
 <pre><code class="language-csharp">[CommandOption(&quot;--debug&quot;)]
 public bool Debug { get; set; }
 </code></pre>
+<h3 id="hidden-options">Hidden options</h3>
+<p><code>CommandOptions</code> can be hidden from being rendered in help by setting <code>IsHidden</code> to <code>true</code>.</p>
+<pre><code class="language-csharp">[CommandOption(&quot;--hidden-opt&quot;, IsHidden = true)]
+public bool HiddenOpt { get; set; }
+</code></pre>
 <h2 id="description">Description</h2>
 <p>When rendering help the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.descriptionattribute?view=net-5.0"><code>System.ComponentModel.Description</code></a> attribute is supported for specifying the text displayed to the user for both <code>CommandOption</code> and <code>CommandArgument</code>.</p>
 <h2 id="defaultvalue">DefaultValue</h2>
