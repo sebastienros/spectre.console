@@ -13,9 +13,13 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
 
-        <title>Spectre.Console - Release Notes</title>
-        <meta name="description" content="Spectre.Console is a .NET Standard 2.0 library that makes it easier to create beautiful console applications" />
+        <title>Spectre.Console - Spectre.Console 0.43 released!</title>
+        <meta name="description" content="Now with .NET 6 support... and more!" />
 
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="og:title" content="Spectre.Console - Spectre.Console 0.43 released!" />
+            <meta name="og:description" content="Now with .NET 6 support... and more!" />
+            <meta name="og:image" content="https://spectreconsole.net/blog/posts/2021-12-16-spectre-console-0.43-released-social.png" />
 
     </head>
     <body class="antialiased text-gray-600 min-h-full flex flex-col  bg-gray-50">
@@ -60,7 +64,7 @@
                         <div class="text-blue-700 mt-4">
 <a href="/blog">Recent Blog Posts</a>                        </div>
                             <div class="ml-2 flex flex-row flex-wrap lg:flex-col border-separate">
-                                    <div class="mt-2 mr-4 font-bold">
+                                    <div class="mt-2 mr-4">
                                         <a href="/blog/release-notes">Release Notes</a>
                                     </div>
                                     <div class="mt-2 mr-4">
@@ -175,47 +179,79 @@
                 </nav>
                 <article class="flex-1 min-w-0">
                     <header class="text-gray-800 mb-4">
-                        <h1 class="text-4xl font-extrabold">Release Notes</h1>
+                        <h1 class="text-4xl font-extrabold">Spectre.Console 0.43 released!</h1>
                         
+<div class="mt-2 font-light text-xs md:text-sm">
+    <span>Posted </span>
+        <span>Wednesday, December 22, 2021 </span>
+        <span>
+            to <a class="text-blue-800 underline" href="/blog/release-notes">
+                Release Notes
+            </a>
+        </span>
+
+</div>
+
                     </header>
                     <div class="prose max-w-none prose-sm lg:prose lg:max-w-none 2xl:prose-xl 2xl:max-w-none text-gray-700 font-light">
-                            <div>
-        <h3 class="mb-0"><a href="/blog/posts/2021-12-16-spectre-console-0.43-released">Spectre.Console 0.43 released!</a></h3>
-        <div class="mt-2 font-light text-xs md:text-sm">
-            <span>Posted </span>
-                <span>Wednesday, December 22, 2021 </span>
-<span>
-                    to <a class="text-blue-800 underline" href="/blog/release-notes">
-                        Release Notes
-                    </a>
-                </span>
+                        
 
-        </div>
-        <article>
-            <p>We forgot (😅) to publish the release notes for <code>0.42</code>, so we've included them as well.
+
+
+
+<p>We forgot (😅) to publish the release notes for <code>0.42</code>, so we've included them as well.
 Noteworthy in this release is that <code>Spectre.Console</code> now ships with <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET 6</a> support.</p>
-        </article>
-    </div>
-    <div>
-        <h3 class="mb-0"><a href="/blog/posts/2021-07-19-spectre-console-0.41-released">Spectre.Console 0.41 released!</a></h3>
-        <div class="mt-2 font-light text-xs md:text-sm">
-            <span>Posted </span>
-                <span>Wednesday, December 22, 2021 </span>
-<span>
-                    to <a class="text-blue-800 underline" href="/blog/release-notes">
-                        Release Notes
-                    </a>
-                </span>
-
-        </div>
-        <article>
-            <p>In this release, we (mostly <a href="https://twitter.com/philco78">Phil</a>) have been focusing on getting the new fancy Roslyn Analyzers out the door.
-If you want to try them out, add a reference to <a href="https://www.nuget.org/packages/spectre.console.analyzer">Spectre.Console.Analyzer</a> in your project, and you should get some best practice tips in your favorite IDE!</p>
-        </article>
-    </div>
-
-
-
+<h2 id="new-contributors">New Contributors</h2>
+<ul>
+<li><a href="https://github.com/mgnslndh">&#64;mgnslndh</a> made their first contribution in <a href="https://github.com/spectreconsole/spectre.console/pull/584">#584</a></li>
+<li><a href="https://github.com/LiamSho">&#64;LiamSho</a> made their first contribution in <a href="https://github.com/spectreconsole/spectre.console/pull/509">#509</a></li>
+<li><a href="https://github.com/kzu">&#64;kzu</a> made their first contribution in <a href="https://github.com/spectreconsole/spectre.console/pull/514">#514</a></li>
+<li><a href="https://github.com/GitHubPang">&#64;GitHubPang</a> made their first contribution in <a href="https://github.com/spectreconsole/spectre.console/pull/535">#535</a></li>
+<li><a href="https://github.com/RedEyedDog">&#64;RedEyedDog</a> made their first contribution in <a href="https://github.com/spectreconsole/spectre.console/pull/546">#546</a></li>
+<li><a href="https://github.com/rifatx">&#64;rifatx</a> made their first contribution in <a href="https://github.com/spectreconsole/spectre.console/pull/545">#545</a></li>
+</ul>
+<h2 id="whats-changed">What's Changed</h2>
+<ul>
+<li>Update sponsors.md by <a href="https://github.com/mgnslndh">&#64;mgnslndh</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/584">#584</a></li>
+<li>Upgrades Statiq and re-enables docs publishing by <a href="https://github.com/phil-scott-78">&#64;phil-scott-78</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/591">#591</a></li>
+<li>Internalizes the <code>WcWidth</code> package by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/593">#593</a></li>
+<li>Small typos in the <code>Getting Started</code> page by <a href="https://github.com/antoniovalentini">&#64;antoniovalentini</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/597">#597</a></li>
+<li>Add net6.0 TFM by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/603">#603</a></li>
+<li>Fix a typo in code comment by <a href="https://github.com/GitHubPang">&#64;GitHubPang</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/579">#579</a></li>
+<li>Added <code>GetParent</code> and <code>GetParents</code> to <code>MultiSelectionPrompt</code> by <a href="https://github.com/nils-a">&#64;nils-a</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/590">#590</a></li>
+<li>Added ExceptionHandler to <code>ICommandAppSettings</code> by <a href="https://github.com/nils-a">&#64;nils-a</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/607">#607</a></li>
+<li>Fixed documentation for selection and multiselection (#499) by <a href="https://github.com/nils-a">&#64;nils-a</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/589">#589</a></li>
+<li>Escape any Markup when displaying selected prompt items by <a href="https://github.com/nils-a">&#64;nils-a</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/610">#610</a></li>
+<li>Upgrade .NET SDK to 6.0.100 by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/616">#616</a></li>
+<li>Allow color numbers in markup expressions by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/615">#615</a></li>
+<li>Remove <code>Render</code> from docs in favor of <code>Write</code> by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/613">#613</a></li>
+<li>Clarify <code>ITypeResolver</code> returns <code>null</code> by <a href="https://github.com/nils-a">&#64;nils-a</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/620">#620</a></li>
+<li>Fix typo in <code>PairDeconstructor</code> class name by <a href="https://github.com/0xced">&#64;0xced</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/619">#619</a></li>
+<li>Fix type conversion in the default pair deconstructor implementation by <a href="https://github.com/0xced">&#64;0xced</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/618">#618</a></li>
+<li>Update examples to net6.0 by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/625">#625</a></li>
+<li>Fix exception formatting for generic methods by <a href="https://github.com/0xced">&#64;0xced</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/639">#639</a></li>
+<li>Use browser context for social cards by <a href="https://github.com/phil-scott-78">&#64;phil-scott-78</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/490">#490</a></li>
+<li>Adds additional check that analyzer is within a method by <a href="https://github.com/phil-scott-78">&#64;phil-scott-78</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/488">#488</a></li>
+<li>Add support for manipulating individual table rows by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/503">#503</a></li>
+<li>Do not share semaphore between consoles by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/507">#507</a></li>
+<li>Fix <code>ArgumentOutOfRangeExceptio</code> when rendering a table by <a href="https://github.com/LiamSho">&#64;LiamSho</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/509">#507</a></li>
+<li>Make building more flexible by allowing feature bands by <a href="https://github.com/kzu">&#64;kzu</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/514">#514</a></li>
+<li>Fix parsing of exceptions on .NET Framework by <a href="https://github.com/0xced">&#64;0xced</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/513">#513</a></li>
+<li>Fix the style parameter nullable annotation on <code>AnsiConsoleExtensions</code> by <a href="https://github.com/0xced">&#64;0xced</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/527">#527</a></li>
+<li>Fix 404 in documentation by <a href="https://github.com/nils-a">&#64;nils-a</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/530">#530</a></li>
+<li>Fix typos in code comments by <a href="https://github.com/GitHubPang">&#64;GitHubPang</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/535">#535</a></li>
+<li>Remove additional registration of <code>ICommand</code> by <a href="https://github.com/nils-a">&#64;nils-a</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/533">#533</a></li>
+<li>Add extension methods to get cell width of <code>char</code> and <code>string</code> by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/523">#523</a></li>
+<li>Disable GH Action workflow for docs by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/547">#547</a></li>
+<li>Fix typos in docs by <a href="https://github.com/GitHubPang">&#64;GitHubPang</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/542">#542</a></li>
+<li>Add a segment builder for merging multiple segments by <a href="https://github.com/phil-scott-78">&#64;phil-scott-78</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/552">#552</a></li>
+<li>Allow user to update table cell by <a href="https://github.com/RedEyedDog">&#64;RedEyedDog</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/546">#546</a></li>
+<li>Fix a minor typo for <code>Spectre1021</code> by <a href="https://github.com/GitHubPang">&#64;GitHubPang</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/557">#557</a></li>
+<li>Future-proof conditional compilation by <a href="https://github.com/0xced">&#64;0xced</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/563">#563</a></li>
+<li>Add support custom max value for barcharts by <a href="https://github.com/rifatx">&#64;rifatx</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/545">#545</a></li>
+<li>Improve the error message when acquiring the interactive semaphore fails by <a href="https://github.com/0xced">&#64;0xced</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/569">#569</a></li>
+<li>Add <code>AnsiConsole.Write</code> method by <a href="https://github.com/patriksvensson">&#64;patriksvensson</a> in <a href="https://github.com/spectreconsole/spectre.console/pull/577">#577</a></li>
+</ul>
 
 
                     </div>
